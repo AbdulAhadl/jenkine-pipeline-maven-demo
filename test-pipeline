@@ -18,7 +18,7 @@ pipeline{
          }
          stage("code_Deploy"){
              steps{
-                   sshagent(['tomcat-server']) {
+                   sshagent(['newtomcat-user']) {
                       
                         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/test-pipeline/target/*.jar  root@172.31.42.226:/etc/opt/tomcat/webapps/var/lib/jenkins/workspace/test-pipeline/target/*.jar'
                      
