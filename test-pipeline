@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    #environment{
-    #PATH="/etc/opt/apache-maven-3.9.0/bin:$PATH"
-    #}
     tools{
     tool name: 'mvn-build', type: 'maven'
     }
