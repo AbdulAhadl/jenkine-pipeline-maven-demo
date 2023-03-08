@@ -1,0 +1,25 @@
+pipeline{
+    agent any
+    environment{
+    PATH="etc/opt/apache-maven-3.9.0/bin:$PATH"
+    }
+    stages{
+          stage("code checkout"){
+              steps{
+                  git credentialsId: 'vickyfit2022', url: 'https://github.com/AbdulAhadl/jenkine-pipeline-maven-demo.git'
+              }
+          }
+         stage("Mave build"){
+             steps{
+                  sh 'mvn clean package'
+             }
+         
+         }
+         
+    
+    
+    }
+
+
+
+}
