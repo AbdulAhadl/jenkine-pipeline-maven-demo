@@ -1,7 +1,7 @@
 pipeline{
     agent any
-    tools{
-    tool name: 'mvn-build', type: 'maven'
+    environment{
+        PATH = "/etc/opt/apache-maven-3.9.0apache-maven-3.9.0:$PATH"
     }
     stages{
           stage("code checkout"){
