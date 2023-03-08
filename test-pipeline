@@ -12,7 +12,7 @@ pipeline{
          stage("Mave build"){
              steps{
                   sh 'mvn clean package'
-                  sh "mv target/*.war target/myweb.war"
+                  
              }
          
          }
@@ -20,7 +20,7 @@ pipeline{
              steps{
                    sshagent(['tomcat-server']) {
                       sh """
-                           scp -o StrictHostKeyChecking=no target/myweb.war  ec2-user@172.31.42.226:/etc/opt/tomcat/webapps/target/myweb.war
+                           scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/test-pipeline/target/*.jar  ec2-user@172.31.42.226:/etc/opt/tomcat/webapps//var/lib/jenkins/workspace/test-pipeline/target/*.jar
                       """
             }
            }  
